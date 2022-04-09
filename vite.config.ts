@@ -6,7 +6,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [vue()],
   build: {
-    outDir: 'doc'
+    outDir: 'docs'
   },
   resolve: {
     alias: {
