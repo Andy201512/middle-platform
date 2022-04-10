@@ -1,6 +1,7 @@
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import { mapState, mapMutations } from 'vuex'
+import { message } from 'ant-design-vue';
 
 export default defineComponent({
   name: 'Test',
@@ -13,12 +14,36 @@ export default defineComponent({
   computed: mapState([
     // 映射 this.count 为 store.state.count
     'count'
-  ])
+  ]),
+  setup() {
+    const arrIndex = ref(0);
+
+    const info = () => {
+      let messageArr = [
+        '发生什么事了？', 
+        '发生什么事了？', 
+        '发生什么事了？', 
+        '发生什么事了？',
+        '变身！',
+        '释放自我！',
+        '走←我→的→路↗，假面骑士，贞→贞→贞→贞↑德↓…'
+        ];
+
+      message.info(messageArr[arrIndex.value]);
+
+      arrIndex.value == messageArr.length - 1 ? arrIndex.value = 0 : arrIndex.value++;
+    };
+    return {
+      info,
+      arrIndex
+    };
+  },
 });
 </script>
 
 <template>
-  <button type="button" @click="increment()">count is: {{ count }}</button>
+  <p><a-button type="primary" @click="increment()">count is: {{ count }}</a-button></p>
+  <p><a-button type="primary" @click="info">变身</a-button></p>
   <router-view></router-view>
 </template>
 
