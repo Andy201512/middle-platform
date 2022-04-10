@@ -19,6 +19,7 @@ export default defineComponent({
 
 <template>
   <button type="button" @click="increment()">count is: {{ count }}</button>
+  <router-view></router-view>
 </template>
 
 <style scoped>

@@ -5,9 +5,23 @@ import Test from '@/views/content/Test.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
-    component: Home
+    component: Home,
+    children:[
+      {
+        path: '/home/children1',
+        name: 'children1',
+        component: Test,
+        children: [
+          {
+            path: '/home/children1/children11',
+            name: 'children11',
+            component: Test
+          }
+        ]
+      }
+    ]
   },
   {
     path: '/about',
