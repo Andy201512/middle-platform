@@ -1,11 +1,25 @@
-<script setup lang="ts">
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { mapState, mapMutations } from 'vuex'
 
-const count = ref(0)
+export default defineComponent({
+  name: 'Test',
+  components: {},
+  methods: {
+    ...mapMutations([
+      'increment',
+    ])
+  },
+  computed: mapState([
+    // 映射 this.count 为 store.state.count
+    'count'
+  ])
+});
 </script>
 
 <template>
-  <button type="button" @click="count++">count is: {{ count }}</button>
+  <button type="button" @click="increment()">count is: {{ count }}</button>
+  <router-view></router-view>
 </template>
 
 <style scoped>
