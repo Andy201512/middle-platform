@@ -5,6 +5,10 @@ import Test from '@/views/content/Test.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
+    path: '/',
+    redirect: '/home'
+  },
+  {
     path: '/home',
     name: 'home',
     component: Home,

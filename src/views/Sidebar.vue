@@ -16,7 +16,7 @@ export default defineComponent({
           }
       }))
   }
-    return renderTree(routes)
+    return renderTree(routes.filter((item:any) => item.path != '/'))
   }
 })
 </script>
