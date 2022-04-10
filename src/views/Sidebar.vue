@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="tsx">
 import { routes } from '@/router'
 import { defineComponent, h, VNode } from 'vue'
 
@@ -8,13 +8,22 @@ export default defineComponent({
   },
   render(ctx: any) {
     function renderTree(tree: any[]):VNode {
-      return h('ul', tree.map((node: any) => {
-          if(node.children){
-              return h('li', {}, [h('a', {href: node.path}, node.name), renderTree(node.children)])
-          }else{
-              return h('li', h('a', {href: node.path}, node.name))
-          }
-      }))
+      return  <ul> 
+                {
+                  tree.map((node: any) => {
+                    if(node.children){
+                        return  <li>
+                                  <router-link to={ node.path }>{ node.name }</router-link>
+                                  { renderTree(node.children) }
+                                </li>
+                    }else{
+                        return  <li>
+                                  <router-link to={ node.path }>{ node.name }</router-link>
+                                </li>
+                    }
+                  })
+                }
+              </ul>
   }
     return renderTree(routes.filter((item:any) => item.path != '/'))
   }
