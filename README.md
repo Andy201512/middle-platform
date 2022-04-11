@@ -21,8 +21,14 @@ You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/
 
 编译文件： yarn build
 
-## 待办列表
+## 已办列表
 
 - [x] 安装并使用router、vuex
 - [x] 递归生成侧边菜单
-- [ ] 安装并使用ant design vue
+- [x] 安装并使用ant design vue
+
+## 待办列表
+
+- [ ] 使用axios请求数据、使用mockjs模拟返回数据，使用vuex存储数据
+- [ ] 使用vue-router实现路由权限、使用vue自定义指令实现组件权限
+- [ ] 使用test路由展示一些自研组件
