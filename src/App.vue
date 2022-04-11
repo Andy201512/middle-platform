@@ -4,38 +4,29 @@
 import Header from '@/views/Header.vue'
 import Sidebar from '@/views/Sidebar.vue';
 import Mainbox from '@/views/Mainbox.vue'
+import { ref } from 'vue';
+
+const collapsed = ref<boolean>(false)
 </script>
 
 <template>
-  <Header></Header>
-  <div id="section">
-    <div id="sidebar">
+  <a-layout style="min-height: 100vh">
+    <a-layout-sider v-model:collapsed="collapsed" collapsible>
       <Sidebar></Sidebar>
-    </div>
-    <div id="mainbox">
-      <Mainbox></Mainbox>
-    </div>
-  </div>
+    </a-layout-sider>
+    <a-layout>
+      <a-layout-header style="background: #fff; padding: 0; text-align: center">
+        <Header></Header>
+      </a-layout-header>
+      <a-layout-content style="margin: 0 16px">
+        <Mainbox></Mainbox>
+      </a-layout-content>
+      <a-layout-footer style="text-align: center">
+        Middle Platform ©2022 Created by Andy201512
+      </a-layout-footer>
+    </a-layout>
+  </a-layout>
 </template>
 
 <style>
-html,body {
-  height: 100%;
-  margin: 0;
-}
-#app {
-  height: 100%;
-}
-#section {
-  display:flex;
-  height: 80%;
-}
-#sidebar {
-  background-color: aqua;
-  flex: 20%;
-}
-#mainbox {
-  border: thick double #32a1ce;;
-  flex: 80%;
-}
 </style>
