@@ -2,6 +2,7 @@
 import { defineComponent, ref } from 'vue';
 import { mapState, mapMutations } from 'vuex'
 import { message } from 'ant-design-vue';
+import testApi from '@/utils/http/api'
 
 export default defineComponent({
   name: 'Test',
@@ -33,8 +34,18 @@ export default defineComponent({
 
       arrIndex.value == messageArr.length - 1 ? arrIndex.value = 0 : arrIndex.value++;
     };
+
+    const handleAxiosRequest = () => {
+      message.info('请求马上开始啦');
+      testApi({})
+      .then((res) => { console.log('请求成功数据', res.data) })
+      .catch((err) => { console.log('请求失败数据', err)})
+      .finally(() => { message.info('请求结束啦') });
+    };
+    
     return {
       info,
+      handleAxiosRequest,
       arrIndex
     };
   },
@@ -44,7 +55,7 @@ export default defineComponent({
 <template>
   <p><a-button type="primary" @click="increment()">count is: {{ count }}</a-button></p>
   <p><a-button type="primary" @click="info">变身</a-button></p>
-  <router-view></router-view>
+  <p><a-button type="primary" @click="handleAxiosRequest">发送请求</a-button></p>
 </template>
 
 <style scoped>
