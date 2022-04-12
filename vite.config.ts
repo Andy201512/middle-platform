@@ -8,7 +8,8 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   base: './',
   build: {
-    outDir: 'docs'
+    outDir: 'docs',
+    chunkSizeWarningLimit: 800
   },
   resolve: {
     alias: {
