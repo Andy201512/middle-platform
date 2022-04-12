@@ -38,7 +38,7 @@ export default defineComponent({
     const handleAxiosRequest = () => {
       message.info('请求马上开始啦');
       testApi({})
-      .then((res) => { console.log('请求成功数据', res.data) })
+      .then((res) => { message.info(`请求成功数据，${ res.data.nickname }`)})
       .catch((err) => { console.log('请求失败数据', err)})
       .finally(() => { message.info('请求结束啦') });
     };

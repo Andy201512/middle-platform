@@ -7,6 +7,8 @@ import { store } from './store';
 import { Button, Menu, Layout } from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
+import "@/mock/index";
+
 const app = createApp(App);
 
 app
