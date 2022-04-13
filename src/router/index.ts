@@ -4,6 +4,7 @@ import Children1 from '@/views/content/Children1.vue'
 import Children11 from '@/views/content/Children11.vue'
 import About from '@/views/content/About.vue'
 import Test from '@/views/content/Test.vue'
+import TableExample from '@/views/content/TableExample.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -33,6 +34,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/about',
     name: 'about',
     component: About
+  },
+  {
+    path: '/table',
+    name: 'table',
+    component: TableExample
   },
   {
     path: '/test',
