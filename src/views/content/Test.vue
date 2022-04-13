@@ -68,15 +68,29 @@ export default defineComponent({
 
 <template>
   <a-divider>按钮初试</a-divider>
-  <p><a-button type="primary" @click="info">变身</a-button></p>
+  <div>
+    <a-button type="primary" @click="info">变身</a-button>
+  </div>
+
   <a-divider>vuex初试</a-divider>
-  <p><a-button type="primary" @click="increment()">count is: {{ count }}</a-button></p>
+  <div>
+    <a-button type="primary" @click="increment()">count is: {{ count }}</a-button>
+  </div>
+
   <a-divider>axios初试</a-divider>
-  <p><a-button type="primary" @click="handleAxiosRequest">发送http请求</a-button></p>
+  <div>
+    <a-button type="primary" @click="handleAxiosRequest">发送http请求</a-button>
+  </div>
+
   <a-divider>vuex、axios结合</a-divider>
-  <p><a-button type="primary" @click="handleMutationsSaveUser">mutations方式设置用户信息</a-button></p>
-  <p><a-button type="primary" @click="handleActionsSaveUser">actions方式获取用户信息</a-button></p>
-  <UserCard ref="userCard"/>
+  <div>
+    <a-descriptions>
+      <a-descriptions-item label="描述">异步获取用户信息，并将信息展示在卡片上</a-descriptions-item>
+    </a-descriptions>
+    <!-- <p><a-button type="primary" @click="handleMutationsSaveUser">mutations方式设置用户信息</a-button></p> -->
+    <p><a-button type="primary" @click="handleActionsSaveUser">请求用户信息</a-button></p>
+    <UserCard ref="userCard"/>
+  </div>
 </template>
 
 <style scoped>
