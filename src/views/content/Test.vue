@@ -2,11 +2,12 @@
 import { defineComponent, ref } from 'vue';
 import { mapState, mapMutations } from 'vuex'
 import { message } from 'ant-design-vue';
-import testApi from '@/utils/http/api'
+import { testApi } from '@/utils/http/api'
+import UserCard from '@/components/UserCard.vue'
 
 export default defineComponent({
   name: 'Test',
-  components: {},
+  components: { UserCard },
   methods: {
     ...mapMutations([
       'increment',
@@ -18,6 +19,8 @@ export default defineComponent({
   ]),
   setup() {
     const arrIndex = ref(0);
+
+    const userCard = ref();
 
     const info = () => {
       let messageArr = [
@@ -42,10 +45,21 @@ export default defineComponent({
       .catch((err) => { console.log('请求失败数据', err)})
       .finally(() => { message.info('请求结束啦') });
     };
+
+    const handleMutationsSaveUser = () => {
+      userCard.value.saveUserMutations();
+    };
     
+    const handleActionsSaveUser = () => {
+      userCard.value.saveUserAtions();
+    };
+
     return {
       info,
       handleAxiosRequest,
+      userCard,
+      handleMutationsSaveUser,
+      handleActionsSaveUser,
       arrIndex
     };
   },
@@ -53,9 +67,16 @@ export default defineComponent({
 </script>
 
 <template>
-  <p><a-button type="primary" @click="increment()">count is: {{ count }}</a-button></p>
+  <a-divider>按钮初试</a-divider>
   <p><a-button type="primary" @click="info">变身</a-button></p>
-  <p><a-button type="primary" @click="handleAxiosRequest">发送请求</a-button></p>
+  <a-divider>vuex初试</a-divider>
+  <p><a-button type="primary" @click="increment()">count is: {{ count }}</a-button></p>
+  <a-divider>axios初试</a-divider>
+  <p><a-button type="primary" @click="handleAxiosRequest">发送http请求</a-button></p>
+  <a-divider>vuex、axios结合</a-divider>
+  <p><a-button type="primary" @click="handleMutationsSaveUser">mutations方式设置用户信息</a-button></p>
+  <p><a-button type="primary" @click="handleActionsSaveUser">actions方式获取用户信息</a-button></p>
+  <UserCard ref="userCard"/>
 </template>
 
 <style scoped>
