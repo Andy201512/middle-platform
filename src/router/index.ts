@@ -11,10 +11,10 @@ import Login from '@/views/content/Login.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/middle-platform/about'
   },
   {
-    path: '/home',
+    path: '/middle-platform/home',
     name: 'home',
     component: Home,
     meta: {
@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
     },
     children:[
       {
-        path: '/home/children1',
+        path: '/middle-platform/home/children1',
         name: 'children1',
         component: Children1,
         meta: {
@@ -32,7 +32,7 @@ const routes: Array<RouteRecordRaw> = [
         },
         children: [
           {
-            path: '/home/children1/children11',
+            path: '/middle-platform/home/children1/children11',
             name: 'children11',
             component: Children11,
             meta: {
@@ -45,7 +45,7 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
-    path: '/about',
+    path: '/middle-platform/about',
     name: 'about',
     component: About,
     meta: {
@@ -54,7 +54,7 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/table',
+    path: '/middle-platform/table',
     name: 'table',
     component: TableExample,
     meta: {
@@ -63,7 +63,7 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/test',
+    path: '/middle-platform/test',
     name: 'test',
     component: Test,
     meta: {
@@ -72,7 +72,7 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/login',
+    path: '/middle-platform/login',
     name: 'login',
     component: Login,
     meta: {
