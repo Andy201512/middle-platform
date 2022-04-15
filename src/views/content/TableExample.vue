@@ -27,8 +27,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <Drawer @submit="handleSubmit"></Drawer>
-  <Table ref="table"></Table>
+  <a-card>
+    <Drawer @submit="handleSubmit"></Drawer>
+    <Table ref="table"></Table>
+  </a-card>
 </template>
 
 <style scoped>
