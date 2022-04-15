@@ -24,7 +24,7 @@ export default defineComponent({
     const onFinish = (values: any) => {
       store.dispatch('saveUserAsync').then(() => {
         console.log('Success:', values);
-        router.push('/about')
+        router.push('/middle-platform/about')
       });
     };
 
