@@ -86,7 +86,7 @@ export default defineComponent({
                 }
               </>
     }
-    return <a-menu  mode="inline" theme="dark"> { renderTree(routes.filter((item:any) => item.path != '/')) } </a-menu>
+    return <a-menu  mode="inline" theme="dark"> { renderTree(routes.filter((item:any) => item.path != '/' && item.path != '/login')) } </a-menu>
   }
 });
 </script>
