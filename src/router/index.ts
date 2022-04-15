@@ -10,7 +10,7 @@ import Login from '@/views/content/Login.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
+    path: '/middle-platform/',
     redirect: '/middle-platform/about'
   },
   {
