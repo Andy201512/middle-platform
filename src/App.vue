@@ -5,20 +5,22 @@ import Header from '@/views/Header.vue'
 import Sidebar from '@/views/Sidebar.vue';
 import Mainbox from '@/views/Mainbox.vue'
 import { ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 const collapsed = ref<boolean>(false)
+const route = useRoute()
 </script>
 
 <template>
   <a-layout style="min-height: 100vh">
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed" collapsible v-if="route.meta.requireAuth">
       <Sidebar></Sidebar>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0; text-align: center">
+      <a-layout-header style="background: #fff; padding: 0; text-align: center" v-if="route.meta.requireAuth">
         <Header></Header>
       </a-layout-header>
-      <a-layout-content style="margin: 0 16px">
+      <a-layout-content :style="route.meta.requireAuth? 'margin: 0 16px;': 'background: linear-gradient(#7ec1ff, rgb(24 144 255 / 0%));'">
         <Mainbox></Mainbox>
       </a-layout-content>
       <a-layout-footer style="text-align: center">
